@@ -12,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - rock
+  - tree
   - 
   - 
   - 
@@ -56,4 +56,10 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 2281584507
+    locked: 0
+  - name: tree
+    uniqueID: 3163912145
+    locked: 0
+  - name: tree1
+    uniqueID: 3359791159
     locked: 0

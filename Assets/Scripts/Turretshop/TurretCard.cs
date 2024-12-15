@@ -11,14 +11,17 @@ public class TurretCard : MonoBehaviour
     
     [SerializeField] private Image turretImage;
     [SerializeField] private TextMeshProUGUI turretCost;
+   
 
     public TurretSettings TurretLoaded { get; set; }
-    
+  
+
     public void SetupTurretButton(TurretSettings turretSettings)
     {
         TurretLoaded = turretSettings;
         turretImage.sprite = turretSettings.TurretShopSprite;
         turretCost.text = turretSettings.TurretShopCost.ToString();
+        
     }
 
     public void PlaceTurret()
