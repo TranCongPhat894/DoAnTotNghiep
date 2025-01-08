@@ -47,13 +47,16 @@ public class LevelManager : Singleton<LevelManager>
     private void GameWon()
     {
         StartCoroutine(GameWonCoroutine());
-        return;
+       
+
+        UIManager.Instance.ShowWinGamePanel();
     }
     private void WaveCompleted()
     {
-        if (CurrentWave >= 10)
+        if (CurrentWave >= 6)
         {
             // Đã hoàn thành wave 10, kết thúc trò chơi
+            
             GameWon();
             return;
         }

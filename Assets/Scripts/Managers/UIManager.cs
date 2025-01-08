@@ -12,6 +12,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject nodeUIPanel;
     [SerializeField] private GameObject achievementPanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject winGamePanel;
 
     [Header("Text")] 
     [SerializeField] private TextMeshProUGUI upgradeText;
@@ -21,7 +22,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI lifesText;
     [SerializeField] private TextMeshProUGUI currentWaveText;
     [SerializeField] private TextMeshProUGUI gameOverTotalCoinsText;
-    
+    [SerializeField] private TextMeshProUGUI gameWinTotalCoinsText;
+    [SerializeField] private TextMeshProUGUI gameWinTotalLifeText;
+
     private Node _currentNodeSelected;
 
     private void Update()
@@ -50,6 +53,24 @@ public class UIManager : Singleton<UIManager>
     {
         gameOverPanel.SetActive(true);
         gameOverTotalCoinsText.text = CurrencySystem.Instance.TotalCoins.ToString();
+    }
+    public void ShowWinGamePanel()
+    {
+        // Chạy Coroutine để đợi 1 giây trước khi hiển thị win panel
+        StartCoroutine(ShowWinGamePanelWithDelay());
+    }
+
+    private IEnumerator ShowWinGamePanelWithDelay()
+    {
+        // Đợi 1 giây
+        yield return new WaitForSeconds(1f);
+
+        // Cập nhật số coin và số mạng
+        gameWinTotalCoinsText.text = CurrencySystem.Instance.TotalCoins.ToString();
+        gameWinTotalLifeText.text = LevelManager.Instance.TotalLives.ToString();
+
+        // Hiển thị win game panel
+        winGamePanel.SetActive(true);
     }
 
     public void RestartGame()

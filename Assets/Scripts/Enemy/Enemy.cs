@@ -6,7 +6,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public static Action<Enemy> OnEndReached;
-    
+   
+
+
     [SerializeField] private float moveSpeed = 3f;
 
     /// <summary>
@@ -31,7 +33,8 @@ public class Enemy : MonoBehaviour
     
     private EnemyHealth _enemyHealth;
     private SpriteRenderer _spriteRenderer;
-    
+   
+
     private void Start()
     {
         _enemyHealth = GetComponent<EnemyHealth>();

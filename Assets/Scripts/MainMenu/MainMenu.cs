@@ -7,10 +7,28 @@ public class MainMenu : MonoBehaviour
 {
    public void playgame()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(1);
     }
     public void QuitGame()
     {
         Application.Quit();
     }
+    public void OpenLevel(int levelId)
+    {
+        LoadLevel(levelId); 
+    }
+
+  
+    private void LoadLevel(int levelId)
+    {
+        if (levelId >= 0 && levelId < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(levelId); 
+        }
+        else
+        {
+            Debug.LogWarning("Scene index out of range: " + levelId);
+        }
+    }
+
 }

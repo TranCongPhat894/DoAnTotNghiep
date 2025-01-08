@@ -8,7 +8,12 @@ public class EnemyAnimations : MonoBehaviour
     private Animator _animator;
     private Enemy _enemy;
     private EnemyHealth _enemyHealth;
-    
+    Audiomanagers audioMnager;
+    private void Awake()
+    {
+        audioMnager = GameObject.FindWithTag("Audio").GetComponent<Audiomanagers>();
+    }
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -38,6 +43,7 @@ public class EnemyAnimations : MonoBehaviour
         PlayHurtAnimation();
         yield return new WaitForSeconds(GetCurrentAnimationLenght() + 0.0f);
         _enemy.ResumeMovement();
+        audioMnager.PlaySFX(audioMnager.enemyhurt);
     }
 
     private IEnumerator PlayDead()
@@ -48,6 +54,7 @@ public class EnemyAnimations : MonoBehaviour
         _enemy.ResumeMovement();
         _enemyHealth.ResetHealth();
         ObjectPooler.ReturnToPool(_enemy.gameObject);
+        audioMnager.PlaySFX(audioMnager.enemydie);
     }
     
     private void EnemyHit(Enemy enemy)
@@ -63,6 +70,7 @@ public class EnemyAnimations : MonoBehaviour
         if (_enemy == enemy)
         {
             StartCoroutine(PlayDead());
+
         }
     }
     

@@ -9,9 +9,15 @@ public class Audiomanagers : MonoBehaviour
     [SerializeField] AudioSource SFXsource;
     [Header("-------audio clip-------")]
     public AudioClip background;
+    public AudioClip enemyhurt;
+    public AudioClip enemydie;
     private void Start()
     {
         musicsource.clip = background;
         musicsource.Play();
+    }
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXsource.PlayOneShot(clip);
     }
 }
