@@ -53,7 +53,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     private void WaveCompleted()
     {
-        if (CurrentWave >= 6)
+        if (CurrentWave >= 2)
         {
             // Đã hoàn thành wave 10, kết thúc trò chơi
             

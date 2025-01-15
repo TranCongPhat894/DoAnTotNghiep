@@ -123,6 +123,25 @@ public class UIManager : Singleton<UIManager>
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
+    public void LoadNextLevel()
+    {
+        // Đảm bảo Time.timeScale trở về giá trị mặc định
+        Time.timeScale = 1;
+
+        // Lấy tên hoặc index của màn tiếp theo
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        // Kiểm tra xem màn tiếp theo có tồn tại hay không
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.LogWarning("Đây là màn cuối cùng!");
+        }
+    }
     private void UpdateUpgradeText()
     {
         upgradeText.text = _currentNodeSelected.Turret.TurretUpgrade.UpgradeCost.ToString();

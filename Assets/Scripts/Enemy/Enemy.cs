@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     /// Move speed of our enemy
     /// </summary>
     public float MoveSpeed { get; set; }
-    
+    public int coinValue = 1;
     /// <summary>
     /// The waypoint reference
     /// </summary>
