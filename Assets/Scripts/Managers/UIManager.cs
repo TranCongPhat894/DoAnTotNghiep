@@ -13,7 +13,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject achievementPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject winGamePanel;
-
+    [SerializeField] private GameObject PauseMenu;
     [Header("Text")] 
     [SerializeField] private TextMeshProUGUI upgradeText;
     [SerializeField] private TextMeshProUGUI sellText;
@@ -24,6 +24,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI gameOverTotalCoinsText;
     [SerializeField] private TextMeshProUGUI gameWinTotalCoinsText;
     [SerializeField] private TextMeshProUGUI gameWinTotalLifeText;
+    
 
     private Node _currentNodeSelected;
 
@@ -78,6 +79,7 @@ public class UIManager : Singleton<UIManager>
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+  
     
     public void OpenAchievementPanel(bool status)
     {
